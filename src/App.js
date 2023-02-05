@@ -11,10 +11,10 @@ function App() {
   let [isDark,setIsDark] = useContext(Theme) 
   let Root = document.querySelector(':root');
   if(isDark){
-    Root.style.setProperty('--blue', ' #05070c');
+    Root.style.setProperty('--blue', '#25254c');
     Root.style.setProperty('--white-50', ' #0d0d14');
     Root.style.setProperty('--text', ' #fff');
-    Root.style.setProperty('--mainElement', '#131320');
+    Root.style.setProperty('--mainElement', '#292936');
 
   }else{
     Root.style.setProperty('--blue', '#471AAA');
