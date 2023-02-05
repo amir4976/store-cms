@@ -1,0 +1,73 @@
+.section-title{
+    font-weight: 600;
+    font-size: 25px;
+}
+.add-product{
+    margin-top: 50px;
+}
+.add-product-container{
+    width: 100%;
+    height: max-content;
+    background: var(--white);
+    /* padding: 20px; */
+    margin-top: 21px;
+}
+.add-product-container input{
+    padding: 10px 20px;
+    width: 100%;
+}
+.Row-separator-cols{
+    width: 100%;
+    display: flex;
+}
+.add-product-form{
+   margin-top: 30px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   padding: 20px;
+    height: fit-content;
+    background-color:var(--mainElement);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.add-product-form-warp{
+width: 100%;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px 15px;
+
+
+}
+
+.add-product-form-group{
+    display: flex;
+        align-content: center;
+        column-gap: 10px;
+        /* width: 100%; */
+        background-color:var(--white-50);
+        padding:0 20px;
+        border: 10px;
+       
+       border-radius: 10px;
+}
+.add-product-input{
+    outline: none;
+    border: none;
+    background-color: unset;
+    padding: 8px 10px;
+    font-size: 20px;
+    font-family: yekan;
+    width: 100%;
+    color: var(--text);
+}
+
+.Add-Product-submit{
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    font-family: yekan;
+    border: none;
+    border-radius: 10px;
+}

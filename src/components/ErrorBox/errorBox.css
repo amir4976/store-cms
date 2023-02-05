@@ -1,0 +1,11 @@
+.cmd-error-box{
+    width: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: var(--white);
+}
