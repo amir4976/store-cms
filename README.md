@@ -1,6 +1,6 @@
 # Hi every one this is my new fullstack cms 
 this cms is build with 
-## react js 
+### react js 
 ## node js  
 ## bootstrap 
 ## mongo db 
