@@ -1,7 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import "./ProductTable.css";
+import DeleteModal from "../DeleteModal/DeleteModal";
 function ProductTable() {
+  let [isShowModal , setIsShowModal] = useState(false)
+  const deleteAction = () =>{
+    setIsShowModal(false)
+  }
+  const cancelDeleteModal= () =>{
+    setIsShowModal(false)
+  } 
   return (
+    <>
     <table className="product-table">
       <tr className="table-product-title-tr">
         <th>عنوان</th>
@@ -19,11 +28,14 @@ function ProductTable() {
         <td>150</td>
         <td className="Table-action-btns-warper">
           <button className="table-action-btns">جزییات</button>
-          <button className="table-action-btns">حذف</button>
+          <button className="table-action-btns" onClick={()=>setIsShowModal(!isShowModal)} >حذف</button>
           <button className="table-action-btns">ویرایش</button>
         </td>
       </tr>
     </table>
+     
+     <DeleteModal isShowModal={isShowModal}  cancelDeleteModal ={cancelDeleteModal}  deleteAction={deleteAction} />
+    </>
   );
 }
 

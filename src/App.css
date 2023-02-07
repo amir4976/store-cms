@@ -15,7 +15,7 @@
 
 body{
   font-family: 'Unbounded', cursive,yekan;
-  display: flex;
+  
   transition: all 0.2s;
   background-color: var(--white-50);
 } 

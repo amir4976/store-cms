@@ -1,0 +1,66 @@
+.modals-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    transition: all 0.5s;
+    /* opacity: 0%; */
+
+}  
+ .modal-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    transition: all 0.5s;
+    opacity: 0%;
+
+}   
+
+.modal-container.active{
+    opacity: 100%;
+    visibility: visible;
+}
+
+.Delete-Modal{
+    width: 500px;
+    height: max-content;
+    background-color: var(--mainElement);
+    border-radius: 10px;
+    padding: 20px;
+}
+.Modal-Title{
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: 900;
+}
+.DeleteModal-btns-container{
+    width: 100%;
+    /* padding: 20px; */
+}
+.DeleteModal-btn{
+    padding: 10px 50px ;
+    background-color: var(--blue);
+    border: .1px solid rgb(67, 114, 255);
+    border-radius: 10px;
+    color: var(--white);
+    margin-right: 10px;
+    cursor: pointer;
+}
+.cancel-modal{
+    background-color: rgb(181, 58, 58);
+}

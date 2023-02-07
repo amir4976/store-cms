@@ -6,6 +6,8 @@ import { useRoutes } from "react-router-dom";
 import { Theme } from "./context/Theme";
 import { useContext } from "react";
 
+
+
 function App() {
   const routes = useRoutes(RoutesData);
   let [isDark,setIsDark] = useContext(Theme) 
@@ -30,6 +32,7 @@ function App() {
       <div className="Main">
         <Navbar />
         {routes}
+
       </div>
     </div>
   );
