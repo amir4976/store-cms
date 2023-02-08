@@ -1,0 +1,35 @@
+.detail-modal-warper{
+    width: 500px;
+    height: fit-content;
+    background: var(--mainElement);
+    border-radius: 10px;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modal-title{
+    font-size: 30px;
+}
+.details-modal-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.details-table{
+    width: 100%;
+    height: 100px;
+}
+.table-details-title-tr{
+    width: 100%;
+    text-align: center;
+}
+.product-detail{
+    width: 100%;
+    text-align: center;
+
+}
