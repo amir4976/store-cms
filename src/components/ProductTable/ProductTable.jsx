@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductTable.css";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 import DetailsModal from "../detailModal/DetailsModal";
+import EditProduct from "../editeProduct/EditeProduct";
+
 function ProductTable() {
 
 
@@ -20,13 +22,21 @@ function ProductTable() {
   // }
 
 
+
+
+
+
   // show Details Modal {
-  
   let[ isShowDetailsModal , setIsShowDetailsModal] = useState(false)
-
-
-
   // }
+
+
+  // show edit modal {
+  let [isShowEditModal,setIsShowEditModal] = useState(false)
+  // }
+
+
+
 
   return (
     <>
@@ -48,7 +58,7 @@ function ProductTable() {
           <td className="Table-action-btns-warper">
             <button className="table-action-btns" onClick={() => setIsShowDetailsModal(!isShowDetailsModal)}>جزییات</button>
             <button className="table-action-btns" onClick={() => setIsShowModal(!isShowModal)} >حذف</button>
-            <button className="table-action-btns" >ویرایش</button>
+            <button className="table-action-btns" onClick={()=>setIsShowEditModal(!isShowEditModal)}>ویرایش</button>
           </td>
         </tr>
       </table>
@@ -56,6 +66,8 @@ function ProductTable() {
       <DeleteModal isShowModal={isShowModal} cancelDeleteModal={cancelDeleteModal} deleteAction={deleteAction} />
 
       <DetailsModal isShowDetails={isShowDetailsModal} setIsShowDetailsModal = {setIsShowDetailsModal}  />
+
+      <EditProduct isShowEditModal={isShowEditModal} setIsShowEditModal={setIsShowEditModal} />
     </>
   );
 }
