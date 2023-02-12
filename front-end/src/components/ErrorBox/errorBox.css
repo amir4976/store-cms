@@ -10,3 +10,6 @@
     color: var(--white);
     font-size: 25px;
 }
+.cmd-error-box.not-active{
+    display: none;
+}

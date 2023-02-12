@@ -9,8 +9,11 @@ import { IoIosColorPalette } from "react-icons/io";
 import { MdAttachMoney } from "react-icons/md";
 import { AiFillPicture } from "react-icons/ai";
 import { MdSell } from "react-icons/md";
+import { useEffect } from "react";
 
-export default function AddProduct() {
+export default function AddProduct({setFlag,flag}) {
+
+
   let [productName, setProductName] = useState("");
   let [productPrise, setProductPrise] = useState("");
   let [productCount, setProductCount] = useState("");
@@ -18,7 +21,8 @@ export default function AddProduct() {
   let [productFavorite, setProductFavorite] = useState("");
   let [ProductSell, setProductSell] = useState("");
   let [ProductColorize, setProductColorize] = useState("");
-  
+    let [sucsess,setsucsess]  = useState(false);
+
   let productObject = {
     id: 12,
     title: productName,
@@ -30,24 +34,57 @@ export default function AddProduct() {
     colors: ProductColorize,
   };
 
+  const  clearInput = () =>{
+    setProductName('')
+    setProductPrise('')
+    setProductCount('')
+    setImgAddress('')
+    setProductFavorite('')
+    setProductSell('')
+    setProductColorize('')
+  }
+
+  // alert sucsess 
+  const SucsessfulyAlert = ()=>{
+    setsucsess(true)
+    setTimeout(() => {
+        setsucsess(false)
+    }, 2000);
+  }
+
+    // const getDataFromDataBase=()=>{
+    //   fetch('http://localhost:8000/api/products')
+    //   .then((res) => res.json())
+    //   .then(res => setProducts(res))
+    // }
+
+    // useEffect(()=>{
+    //   getDataFromDataBase()
+    // },[])
 
   const addItem = () => {
     fetch("http://localhost:8000/api/products", {
       method: "POST",
-      header: {
-        "content-type": "application/json",
+      headers: {
+        "Content-Type": "application/json",
       },
+
       body: JSON.stringify(productObject)
     })
       .then((res) =>res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        clearInput()
+        setFlag(!flag)
+        SucsessfulyAlert()
+      })
+      
   };
 
 
 
 
   return (
-    <div className="add-product">
+   <> <div className="add-product">
       <h3 className="section-title">افزودن محصول جدید</h3>
 
       <div className="add-product-form">
@@ -59,6 +96,7 @@ export default function AddProduct() {
               placeholder="نام محصول"
               className="add-product-input"
               onInput={(e) => setProductName(e.target.value)}
+              value={productName}
             />
           </div>
 
@@ -69,6 +107,7 @@ export default function AddProduct() {
               placeholder="قیمت محصول"
               className="add-product-input"
               onInput={(e) => setProductPrise(e.target.value)}
+              value={productPrise}
             />
           </div>
 
@@ -79,6 +118,7 @@ export default function AddProduct() {
               placeholder="موجودی محصول"
               className="add-product-input"
               onInput={(e) => setProductCount(e.target.value)}
+              value={productCount}
             />
           </div>
 
@@ -89,6 +129,7 @@ export default function AddProduct() {
               placeholder="ادرس عکس محصول"
               className="add-product-input"
               onInput={(e) => setImgAddress(e.target.value)}
+              value={imgAddress}
             />
           </div>
 
@@ -99,6 +140,7 @@ export default function AddProduct() {
               placeholder="محبوبیت محصول"
               className="add-product-input"
               onInput={(e) => setProductFavorite(e.target.value)}
+              value={productFavorite}
             />
           </div>
 
@@ -109,6 +151,7 @@ export default function AddProduct() {
               placeholder="فروش محصول"
               className="add-product-input"
               onInput={(e) => setProductSell(e.target.value)}
+              value={ProductSell}
             />
           </div>
 
@@ -119,6 +162,7 @@ export default function AddProduct() {
               placeholder="رنگ بندی محصول"
               className="add-product-input"
               onInput={(e) => setProductColorize(e.target.value)}
+              value={ProductColorize}
             />
           </div>
         </div>
@@ -127,5 +171,9 @@ export default function AddProduct() {
         </button>
       </div>
     </div>
+    {sucsess && <div className="sucsess-alert">
+       ✔  add new product is successful
+      </div>}
+    </>
   );
 }

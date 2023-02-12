@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./DetailModal.css";
-function DetailsModal({ isShowDetails, setIsShowDetailsModal }) {
+function DetailsModal({ isShowDetails, setIsShowDetailsModal,targetProduct }) {
 
   // close details modal with ESP btn {
   useEffect(() => {
@@ -12,6 +12,8 @@ function DetailsModal({ isShowDetails, setIsShowDetailsModal }) {
     });
   }, []);
   // }
+  
+
   
   return ReactDOM.createPortal(
     <div
@@ -25,11 +27,17 @@ function DetailsModal({ isShowDetails, setIsShowDetailsModal }) {
               <th>نام</th>
               <th>قیمت</th>
               <th>موجودی</th>
+              <th>فروش</th>
+              <th>محبوبیت</th>
+              <th>رنگ</th>
             </tr>
             <tr className="product-detail">
-              <td>some</td>
-              <td>120$</td>
-              <td>120</td>
+              <td>{targetProduct.title}</td>
+              <td>{targetProduct.price}$</td>
+              <td>{targetProduct.count}</td>
+              <td>{targetProduct.sale}</td>
+              <td>{targetProduct.popularity}</td>
+              <td>{targetProduct.colors}</td>
             </tr>
           </table>
         </div>

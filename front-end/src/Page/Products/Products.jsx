@@ -1,16 +1,18 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import AddProduct from '../../components/AddProduct/AddProduct'
-import ErrorBox from '../../components/ErrorBox/ErrorBox'
 import ProductTable from '../../components/ProductTable/ProductTable'
-import DeleteModal from '../../components/DeleteModal/DeleteModal'
+
 
 
 function Products() {
+
+    let [flag ,setFlag] =useState(false)
+
   return (
     <>
-      <AddProduct/>
-      <ErrorBox title={'محصولی'}/>
-      <ProductTable/>
+      <AddProduct flag={flag} setFlag ={setFlag}/>
+     
+      <ProductTable flag={flag} setFlag ={setFlag}/>
       {/* <DeleteModal/> */}
     </>
   )
