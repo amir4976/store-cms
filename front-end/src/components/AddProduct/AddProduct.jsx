@@ -24,7 +24,7 @@ export default function AddProduct({setFlag,flag}) {
     let [sucsess,setsucsess]  = useState(false);
 
   let productObject = {
-    id: 12,
+    
     title: productName,
     price: productPrise,
     count: productCount,
@@ -32,17 +32,20 @@ export default function AddProduct({setFlag,flag}) {
     popularity: productFavorite,
     sale: ProductSell,
     colors: ProductColorize,
+
   };
+
 
   const  clearInput = () =>{
     setProductName('')
     setProductPrise('')
     setProductCount('')
-    setImgAddress('')
+    setImgAddress('')   
     setProductFavorite('')
     setProductSell('')
     setProductColorize('')
   }
+
 
   // alert sucsess 
   const SucsessfulyAlert = ()=>{

@@ -9,7 +9,7 @@ function ProductTable({setFlag, flag}) {
   let [Products,setProducts]  = useState([]);
   let [itemflag,setItemFlag] = useState(false)
   let [getProductObject,setGetProductObject] = useState({})
-console.log(getProductObject);
+
   const getDataFromDataBase=()=>{
     fetch('http://localhost:8000/api/products')
     .then((res) => res.json())
@@ -38,7 +38,7 @@ console.log(getProductObject);
 
   // delete product-id
   let [productID, setProductID] = useState(0);
-  console.log(productID);
+
 
   // pass functions in DeleteModal component
   const deleteAction = () => {
@@ -48,7 +48,7 @@ console.log(getProductObject);
       .then((response) => response)
       .then((data) => {
         setIsShowModal(false);
-        console.log(data);
+
          getDataFromDataBase()
 
       }); // Manipulate the data retrieved back, if we want to do something with it
@@ -119,6 +119,7 @@ console.log(getProductObject);
                   className="table-action-btns"
                   onClick={() => {
                     setIsShowEditModal(!isShowEditModal)
+                    setGetProductObject(product)
                   }}
                 >
                   ویرایش
@@ -143,6 +144,8 @@ console.log(getProductObject);
       <EditProduct
         isShowEditModal={isShowEditModal}
         setIsShowEditModal={setIsShowEditModal}
+        targetProduct={getProductObject}
+        setFlag ={setFlag}
       />
     </>
   );

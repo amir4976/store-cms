@@ -1,13 +1,14 @@
 .edit-product-container{
     width: 500px;
     height: max-content;
-    background-color: var(--white);
+    background-color: var(--mainElement);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction:column;
     border-radius: 10px;
     padding: 10px;
+    color: var(--text);
 
 }
 .edit-product-modal-title{
@@ -21,4 +22,18 @@
     background-color: var(--blue);
     border-radius: 10px;
     color: var(--white);
+    margin-top: 20px;
+}
+.edit-product-input{
+    width: 90%;
+    padding-right: 10px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: var(--white-50);
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: var(--text);
+    font-family:yekan,'Gill Sans',sans-serif ;
 }
