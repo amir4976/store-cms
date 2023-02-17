@@ -1,0 +1,9 @@
+
+
+.showCommentInfo-container{
+    width: 500px;
+    height: fit-content;
+    background: var(--mainElement);
+    padding: 20px;
+    border-radius: 10px;
+}

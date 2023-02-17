@@ -1,0 +1,46 @@
+.delete-comment-container{
+    width: 500px;
+    height: 200px;
+    background: var(--mainElement);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+
+}
+.delete-cancel-btns{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.delete-cancel-btns button{
+    padding: 10px 40px;
+    margin-right: 10px;
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 20px;
+}
+.delete-comment-container h1{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.yes-btn{
+    border: none;
+    background-color: rgb(36, 44, 255);
+    transition: all 0.5s;
+}
+.yes-btn:hover{
+    background-color: rgb(3, 9, 184);
+}
+.no-btn{
+    border: none;
+    background-color: rgb(255, 28, 28);
+    transition: all 0.5s;
+}
+.no-btn:hover{
+    background-color: rgb(191, 0, 0);
+}

@@ -1,0 +1,27 @@
+.update-CommentModal{
+    width: 500px;
+    height: max-content;
+    background: var(--mainElement);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    flex-direction: column;
+
+}
+.update-CommentModal textarea{
+        margin-top: 10px;
+        font-size: 20px;
+        outline: none;
+        font-family: yekan;
+}
+.updateBtn{
+    width: 77%;
+    height: 30px;
+    border-radius: 10px;
+    margin-top:10px ;
+    background: var(--blue);
+    color: #fff;
+}
