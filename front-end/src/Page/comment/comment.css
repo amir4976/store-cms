@@ -1,0 +1,37 @@
+.comments-container{
+    width: 100%;
+    margin-top: 50px;
+    height: max-content;
+}
+.table{
+    background: var(--mainElement);
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+
+}
+.table th{
+    padding: 20px;
+    text-align: center;
+}
+.table td{
+    padding: 20px;
+    text-align: center;
+}
+.btn-primary{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(36, 44, 255);
+    color: var(--white);
+    font-family: yekan;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.btn-space-between{
+    margin: 0 10px;
+}
+.btn-primary:hover{
+    background-color: rgb(18, 18, 179);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.366);
+}
