@@ -7,41 +7,32 @@ import EditProduct from "../editeProduct/EditeProduct";
 
 function ProductTable({ setFlag, flag }) {
   let [Products, setProducts] = useState([]);
-  let [itemflag, setItemFlag] = useState(false)
-  let [getProductObject, setGetProductObject] = useState({})
+  let [itemflag, setItemFlag] = useState(false);
+  let [getProductObject, setGetProductObject] = useState({});
 
-
-  let [targetProductTitle, setTargetProductTitle] = useState('')
-  let [targetProductPrice, setTargetProductPrice] = useState('')
-  let [targetProductCount, setTargetProductCount] = useState('')
-  let [targetProductImg, setTargetProductImg] = useState('')
-  let [targetProductPopularity, setTargetProductPopularity] = useState('')
-  let [targetProductSale, setTargetProductSale] = useState('')
-  let [targetProductColors, setTargetProductColors] = useState('')
-
-
+  let [targetProductTitle, setTargetProductTitle] = useState("");
+  let [targetProductPrice, setTargetProductPrice] = useState("");
+  let [targetProductCount, setTargetProductCount] = useState("");
+  let [targetProductImg, setTargetProductImg] = useState("");
+  let [targetProductPopularity, setTargetProductPopularity] = useState("");
+  let [targetProductSale, setTargetProductSale] = useState("");
+  let [targetProductColors, setTargetProductColors] = useState("");
 
   const getDataFromDataBase = () => {
-    fetch('http://localhost:8000/api/products')
+    fetch("http://localhost:8000/api/products")
       .then((res) => res.json())
-      .then(res => {
-        setProducts(res)
-
-      })
-  }
-
+      .then((res) => {
+        setProducts(res);
+      });
+  };
 
   useEffect(() => {
-    getDataFromDataBase()
-
-  }, [])
-
+    getDataFromDataBase();
+  }, []);
 
   useEffect(() => {
-    getDataFromDataBase()
-  }, [flag])
-
-
+    getDataFromDataBase();
+  }, [flag]);
 
   // show delete modal
   // {
@@ -49,7 +40,6 @@ function ProductTable({ setFlag, flag }) {
 
   // delete product-id
   let [productID, setProductID] = useState(0);
-
 
   // pass functions in DeleteModal component
   const deleteAction = () => {
@@ -60,8 +50,7 @@ function ProductTable({ setFlag, flag }) {
       .then((data) => {
         setIsShowModal(false);
 
-        getDataFromDataBase()
-
+        getDataFromDataBase();
       }); // Manipulate the data retrieved back, if we want to do something with it
   };
 
@@ -80,7 +69,6 @@ function ProductTable({ setFlag, flag }) {
 
   // fetch from the api
 
-
   let updatedProduct = {
     title: targetProductTitle,
     price: targetProductPrice,
@@ -88,35 +76,33 @@ function ProductTable({ setFlag, flag }) {
     img: targetProductImg,
     popularity: targetProductPopularity,
     sale: targetProductSale,
-    colors: targetProductColors
-  }
+    colors: targetProductColors,
+  };
 
+  // update comment
   const updateProduct = () => {
-    console.log(updatedProduct)
+    console.log(updatedProduct);
     fetch(`http://localhost:8000/api/products/${getProductObject.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedProduct),
-    }).then((res) => {
-        res.json()
-        console.log(res)
+    })
+      .then((res) => {
+        res.json();
+        console.log(res);
       })
-      .then(res => {
-        console.log(res)
-        setIsShowEditModal(false)
-        getDataFromDataBase()
+      .then((res) => {
+        console.log(res);
+        setIsShowEditModal(false);
+        getDataFromDataBase();
       })
-      .catch(error => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
+  
 
   return (
     <>
-      {
-        Products.length ?
-          ''
-          :
-          <ErrorBox title={'محصولی'} />
-      }
+      {Products.length ? "" : <ErrorBox title={"محصولی"} />}
       <table className="product-table">
         <tr className="table-product-title-tr">
           <th>عنوان</th>
@@ -138,8 +124,8 @@ function ProductTable({ setFlag, flag }) {
                 <button
                   className="table-action-btns"
                   onClick={() => {
-                    setGetProductObject(product)
-                    setIsShowDetailsModal(!isShowDetailsModal)
+                    setGetProductObject(product);
+                    setIsShowDetailsModal(!isShowDetailsModal);
                   }}
                 >
                   جزییات
@@ -158,15 +144,15 @@ function ProductTable({ setFlag, flag }) {
                 <button
                   className="table-action-btns"
                   onClick={() => {
-                    setIsShowEditModal(!isShowEditModal)
-                    setGetProductObject(product)
-                    setTargetProductTitle(product.title)
-                    setTargetProductPrice(product.price)
-                    setTargetProductCount(product.count)
-                    setTargetProductImg(product.img)
-                    setTargetProductPopularity(product.popularity)
-                    setTargetProductSale(product.sale)
-                    setTargetProductColors(product.colors)
+                    setIsShowEditModal(!isShowEditModal);
+                    setGetProductObject(product);
+                    setTargetProductTitle(product.title);
+                    setTargetProductPrice(product.price);
+                    setTargetProductCount(product.count);
+                    setTargetProductImg(product.img);
+                    setTargetProductPopularity(product.popularity);
+                    setTargetProductSale(product.sale);
+                    setTargetProductColors(product.colors);
                   }}
                 >
                   ویرایش
@@ -195,57 +181,57 @@ function ProductTable({ setFlag, flag }) {
         setFlag={setFlag}
       >
         <div className="edit-product-container">
-          <h1 className='edit-product-modal-title'>تغیرات محصول</h1>
+          <h1 className="edit-product-modal-title">تغیرات محصول</h1>
           <input
             type="text"
             placeholder="نام محصول"
             className="edit-product-input"
             value={targetProductTitle}
-            onChange={e => setTargetProductTitle(e.target.value)}
+            onChange={(e) => setTargetProductTitle(e.target.value)}
           />
           <input
             type="text"
             placeholder="قیمت محصول"
             className="edit-product-input"
             value={targetProductPrice}
-            onChange={e => setTargetProductPrice(e.target.value)}
+            onChange={(e) => setTargetProductPrice(e.target.value)}
           />
           <input
             type="text"
             placeholder="موجودی محصول"
             className="edit-product-input"
             value={targetProductCount}
-            onChange={e => setTargetProductCount(e.target.value)}
+            onChange={(e) => setTargetProductCount(e.target.value)}
           />
           <input
             type="text"
             placeholder="ادرس عکس محصول"
             className="edit-product-input"
             value={targetProductImg}
-            onChange={e => setTargetProductImg(e.target.value)}
+            onChange={(e) => setTargetProductImg(e.target.value)}
           />
           <input
             type="text"
             placeholder="محبوبیت محصول"
             className="edit-product-input"
             value={targetProductPopularity}
-            onChange={e => setTargetProductPopularity(e.target.value)}
+            onChange={(e) => setTargetProductPopularity(e.target.value)}
           />
           <input
             type="text"
             placeholder="فروش محصول"
             className="edit-product-input"
             value={targetProductSale}
-            onChange={e => setTargetProductSale(e.target.value)}
+            onChange={(e) => setTargetProductSale(e.target.value)}
           />
           <input
             type="text"
             placeholder="رنگ بندی محصول"
             className="edit-product-input"
             value={targetProductColors}
-            onChange={e => setTargetProductColors(e.target.value)}
+            onChange={(e) => setTargetProductColors(e.target.value)}
           />
-          <button className='edit-product-submit-btn' onClick={updateProduct} >
+          <button className="edit-product-submit-btn" onClick={updateProduct}>
             save
           </button>
         </div>

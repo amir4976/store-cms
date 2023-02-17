@@ -11,7 +11,9 @@ function Comments() {
   let [isShowCommentInfo, setIsShowCommentInfo] = useState(false)
   let [isShowDeleteModal, setIsShowDeleteModal] = useState(false)
   let [DeleteCommentID, setDeleteCommentID] = useState(0)
-  let [Desc,setDesc]=useState('')
+
+  let [updateCommentID,setUpdateCommentID] = useState(0)
+  let [Desc,setDesc]=useState("")
   let [isShowUpdateModal,setIsShowUpdateModal]= useState(false)
 
   const getAllComments = () => {
@@ -38,6 +40,23 @@ function Comments() {
         getAllComments()
       })
   }
+
+
+  // update comments
+  const updateComment = () =>{
+    fetch(`http://localhost:8000/api/comments/${updateCommentID}`,{
+        method:'PUT'
+        ,headers: {"Content-Type": "application/json",}
+        ,body:JSON.stringify({
+          body:Desc
+        })
+    })
+        .then(res=>console.log(res))
+        .then(res=>{
+            setIsShowUpdateModal(false)
+            getAllComments()
+        })
+}
 
   return (
     <>
@@ -74,9 +93,14 @@ function Comments() {
                   <button className="btn-primary btn-space-between" onClick={() => {
                     setIsShowDeleteModal(!isShowDeleteModal)
                     setDeleteCommentID(comment.id)
+
                   }
                   }>حذف</button>
-                  <button className="btn-primary btn-space-between" onClick={()=>setIsShowUpdateModal(true)}>ویرایش</button>
+                  <button className="btn-primary btn-space-between" onClick={()=>{
+                    setIsShowUpdateModal(true)
+                    setUpdateCommentID(comment.id)
+                    setDesc(comment.body)
+                    }}>ویرایش</button>
                   <button className="btn-primary btn-space-between">پاسخ</button>
                   <button className="btn-primary btn-space-between">تایید</button>
                 </td>
@@ -87,7 +111,7 @@ function Comments() {
       </div>
       <ShowCommentInfo isShowCommentInfo={isShowCommentInfo} setIsShowCommentInfo={setIsShowCommentInfo} desc={Desc} />
       <DeleteCommentModal isShowDeleteModal={isShowDeleteModal} setIsShowDeleteModal={setIsShowDeleteModal}  deleteComment={deleteComment}/>
-      <UpdateCommentModal isShowUpdateModal={isShowUpdateModal}  setIsShowUpdateModal={setIsShowUpdateModal}/>
+      <UpdateCommentModal isShowUpdateModal={isShowUpdateModal}  setIsShowUpdateModal={setIsShowUpdateModal} updateCommentId={updateCommentID} desc={Desc} setDesc={setDesc} updateComment={updateComment}/>
     </>
   );
 }

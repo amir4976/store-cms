@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import './updateCommnetModal.css'
 function UpdateCommentModal(props) {
+    
     useEffect(()=>{
         window.addEventListener('keydown',(e)=>{
             if(e.keyCode == 27){
@@ -10,12 +11,14 @@ function UpdateCommentModal(props) {
             }
         })
     },[])
+
+
     return ReactDOM.createPortal(
         <div className={props.isShowUpdateModal ?' modal-container active': 'modal-container'}>
             <div className="update-CommentModal">
                 <h1>  لطفا متن خود را وارد کنید!</h1>
-                <textarea name="" id="" cols="40" rows="2"></textarea>
-                <button className='updateBtn'>update</button>
+                <textarea value={props.desc} onChange={(e)=>props.setDesc(e.target.value)} name="" id="" cols="40" rows="2"></textarea>
+                <button className='updateBtn' onClick={()=>props.updateComment()}>update</button>
             </div>
         </div>
         , document.getElementById('modals')
