@@ -8,7 +8,7 @@
     justify-content: space-around;
     padding: 20px;
     align-items: center;
-
+    color: var(--text);
 }
 .delete-cancel-btns{
     width: 100%;

@@ -1,0 +1,8 @@
+.Users-Table-container{
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: var(--mainElement);
+    margin-top: 50px;
+   
+}

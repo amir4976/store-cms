@@ -62,6 +62,7 @@ main url = http://localhost:8000/api/
     sub_url: /accept
     req param => commentId => Comment ID
 
+
 5. Reject Comment
     method: Post
     sub_url: /reject

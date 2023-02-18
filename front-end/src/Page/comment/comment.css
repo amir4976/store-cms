@@ -35,3 +35,23 @@
     background-color: rgb(18, 18, 179);
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.366);
 }
+
+.deleteAlert{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: green;
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--white);
+    animation: DeleteAlertIntero 0.5s;
+}
+@keyframes DeleteAlertIntero {
+    from{
+        opacity: 0;
+        bottom:30px ;
+    }to{
+        opacity: 1;
+        bottom:10px ;
+    }
+}

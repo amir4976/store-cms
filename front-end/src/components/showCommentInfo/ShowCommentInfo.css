@@ -4,6 +4,8 @@
     width: 500px;
     height: fit-content;
     background: var(--mainElement);
+    color: var(--text);
     padding: 20px;
     border-radius: 10px;
+    font-size: 20px;
 }

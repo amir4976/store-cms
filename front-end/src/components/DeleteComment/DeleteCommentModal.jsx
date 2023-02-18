@@ -7,6 +7,8 @@ function DeleteCommentModal({ isShowDeleteModal, setIsShowDeleteModal ,deleteCom
         window.addEventListener('keydown',(e)=>{
             if(e.keyCode==27){
                 setIsShowDeleteModal(false)
+            }else if(e.keyCode == 13){
+                deleteComment()
             }
         })
     },[])

@@ -1,0 +1,15 @@
+.deleteUserModal-container{
+    width: 500px;
+    height: max-content;
+    background: var(--mainElement);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+}
+.deleteUserModal-container h1{
+    padding: 50px;
+    font-size: 20px;
+    font-weight: 700;
+}

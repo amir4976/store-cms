@@ -9,6 +9,7 @@
     align-items: center;
     font-size: 25px;
     flex-direction: column;
+    color: var(--text);
 
 }
 .update-CommentModal textarea{
@@ -16,6 +17,8 @@
         font-size: 20px;
         outline: none;
         font-family: yekan;
+        background: transparent;
+        color: var(--text);
 }
 .updateBtn{
     width: 77%;
