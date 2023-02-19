@@ -1,0 +1,36 @@
+.updateModal-container{
+    width: 500px;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--mainElement);
+    padding: 10px;
+    border-radius: 10px;
+}
+.updateModal-container h1{
+    font-size: 20px;
+    font-weight: 600;
+}
+.update-user-info-input{
+    width: 90%;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-family: yekan;
+    padding: 0 20px;
+    background-color: var(--white-50);
+    border: none;
+    outline: none;
+}
+.submit-user-info{
+    width: 90%;
+    height: 40px;
+    margin-top: 10px;
+    background: var(--blue);
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
